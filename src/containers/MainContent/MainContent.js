@@ -4,9 +4,9 @@ import ContactForm from "../../components/ContactForm/ContactForm";
 import ContactInfo from "../../components/Contacts/ContactInfo/ContactInfo";
 import ContactModel from "../../Models/ContactModel";
 import Navbar from "../../components/Navbar/Navbar";
-import Contact from "../../components/Contacts/Contact/Contact";
+import {connect} from 'react-redux';
 
-export default class MainContent extends Component {
+class MainContent extends Component {
   state = {
     contacts: [
       new ContactModel({
@@ -120,3 +120,5 @@ export default class MainContent extends Component {
     );
   }
 }
+
+export default connect()(MainContent);
