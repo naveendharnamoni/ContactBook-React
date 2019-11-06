@@ -98,7 +98,7 @@ class MainContent extends Component {
         <h2 className="cntct-heading">Contacts</h2>
         <div className="container">
           <Contacts
-            contacts={this.state.contacts}
+            contacts={this.props.contacts}
             displayContactInfo={this.toggleContactInfo}
           ></Contacts>
           {this.state.isFormDisplayed ? (
@@ -121,4 +121,13 @@ class MainContent extends Component {
   }
 }
 
-export default connect()(MainContent);
+const mapStateToProps = state => {
+  return {
+    contacts : state.contacts,
+    isContactInfo : state.isContactInfo,
+    isFormDisplayed : state.isFormDisplayed,
+    contactSelected : state.contactSelected
+  }
+}
+
+export default connect(mapStateToProps)(MainContent);
