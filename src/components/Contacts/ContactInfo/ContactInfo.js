@@ -1,4 +1,6 @@
 import React from 'react'
+import Edit from "../../../assets/Edit-icon.png";
+import Delete from "../../../assets/delete1.png";
 
 const ContactInfo = (props) => {
     return (
@@ -16,10 +18,10 @@ const ContactInfo = (props) => {
           </div>
           <div className="icons" >
             <div id="edit" onClick={props.edit}>
-              <img id="image-1" src="Edit-icon.png" alt="edit"/><span>EDIT</span>
+              <img id="image-1" src={Edit} alt="edit"/><span>EDIT</span>
             </div>
             <div id="delete" onClick = {props.delete}>
-              <img id="image-2" src="delete1.png" alt="delete"/><span>DELETE</span>
+              <img id="image-2" src={Delete} alt="delete"/><span>DELETE</span>
             </div>
           </div>
         </div>
