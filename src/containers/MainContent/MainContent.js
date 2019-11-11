@@ -88,7 +88,7 @@ class MainContent extends Component {
     this.setState({
       contactSelected: null
     });
-    this.toggleContactForm();
+    this.props.toggleContactForm();
   };
 
   render() {
@@ -101,9 +101,9 @@ class MainContent extends Component {
             contacts={this.props.contacts}
             displayContactInfo={this.toggleContactInfo}
           ></Contacts>
-          {this.state.isFormDisplayed ? (
+          {this.props.isFormDisplayed ? (
             <ContactForm
-              toggleForm={this.toggleContactForm}
+              toggleForm={this.props.toggleContactForm}
               addContact={this.addOrEditContact}
               {...this.selectedContact()}
             ></ContactForm>
@@ -130,4 +130,10 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(MainContent);
+const mapDispatchToProps = dispatch =>{
+  return{
+    toggleContactForm : () => dispatch({type: "TOGGLE_FORM"})
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(MainContent);
